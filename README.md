@@ -19,6 +19,13 @@ Notable issues which are handled during this process:
   are skipped, since they are not required for cross compilation. Only
   header files, libraries and other regular files are unpacked.
 
+# Installation
+
+You can install this tool locally like this:
+
+    $ cargo build --release
+    $ ln -s `pwd`/target/release/sysroot-creator ~/.local/bin/sysroot-creator
+
 # Usage
 
 Create a configuration file, for example `my-sysroot-conf.toml`, describing your intended sysroot:
