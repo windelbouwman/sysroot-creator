@@ -20,13 +20,10 @@ jobs:
           toolchain: stable
           override: true
       - name: Build
-        # run: cargo build --release
-        run: echo "A" > bla.txt
+        run: cargo build --release
       - name: Create release
         uses: softprops/action-gh-release@v1
+        with:
+          files: target/release/sysroot-creator
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          draft: true
-          #files: target/release/sysroot-creator
-          files: bla.txt
