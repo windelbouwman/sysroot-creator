@@ -1,0 +1,29 @@
+
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  dist-x86_64-unknown-linux-gnu:
+    name: dist (x86_64-unknown-linux-gnu)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: Build
+        run: cargo build --release
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/release/sysroot-creator
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
