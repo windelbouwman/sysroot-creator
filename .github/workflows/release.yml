@@ -3,10 +3,8 @@ name: Release
 
 on:
   push:
-    branches:
-    - release-testing
     tags:
-    - '[0-9]+'
+      - '*'
 
 jobs:
   dist-x86_64-unknown-linux-gnu:
@@ -22,12 +20,13 @@ jobs:
           toolchain: stable
           override: true
       - name: Build
-        run: cargo build --release
+        # run: cargo build --release
+        run echo "A" > bla.txt
       - name: Create release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          name: test-release-${{ github.run_number }}
-          files: target/release/sysroot-creator
+          #files: target/release/sysroot-creator
+          files: bla.txt
