@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: cargo build --release
       - name: Create release
-        uses: uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
