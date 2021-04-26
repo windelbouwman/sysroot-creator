@@ -1,10 +1,10 @@
 
-name: release
+name: Release
 
 on:
   push:
     branches:
-      release-testing
+    - release-testing
     tags:
     - '[0-9]+'
 
@@ -19,6 +19,8 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           profile: minimal
+          toolchain: stable
+          override: true
       - name: Build
         run: cargo build --release
       - name: Create artifact
