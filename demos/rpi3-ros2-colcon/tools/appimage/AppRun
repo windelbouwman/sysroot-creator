@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Hello from app image!"
+
+THIS_FOLDER=$(dirname $(realpath $BASH_SOURCE))
+echo "Assuming located here: ${THIS_FOLDER}"
+
+source /opt/ros/foxy/local_setup.bash
+source ${THIS_FOLDER}/install/local_setup.bash
+
+APP_EXECUTABLE=${THIS_FOLDER}/install/bin/app1
+
+echo "Invoking: ${APP_EXECUTABLE}"
+
+${APP_EXECUTABLE}
+

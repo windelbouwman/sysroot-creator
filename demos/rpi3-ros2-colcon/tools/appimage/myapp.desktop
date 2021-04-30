@@ -1,0 +1,8 @@
+
+[Desktop Entry]
+Name=MyApp
+Exec=myapp
+Icon=ros_icon
+Type=Application
+Categories=Development;
+

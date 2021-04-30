@@ -1,0 +1,24 @@
+
+distribution_version = "focal"
+architecture = "arm64"
+folder = "sysroot-rpi3"
+
+packages = [
+    "ros-foxy-rclcpp",
+    "ros-foxy-rosidl-default-generators"
+]
+
+[sources]
+
+[sources.ports]
+url = "http://ports.ubuntu.com/ubuntu-ports"
+sections = [
+    "main",
+    "universe",
+]
+
+[sources.ros2]
+url = "http://packages.ros.org/ros2/ubuntu"
+sections = [
+    "main",
+]
