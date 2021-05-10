@@ -2,3 +2,5 @@
 
 sysroot-*/
 my-sysroot-conf.toml
+
+release/
